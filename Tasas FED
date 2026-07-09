@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasa de referencia de la Fed</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, Helvetica, sans-serif; background: #fff; }
+  .wrap { padding: 24px 16px 16px; max-width: 700px; margin: 0 auto; }
+  .titulo { font-size: 16px; font-weight: 700; color: #141414; margin-bottom: 4px; }
+  .subtitulo { font-size: 13px; color: #5A5A5A; margin-bottom: 24px; }
+  .chart-box { position: relative; width: 100%; height: 300px; }
+  .footer { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #5A5A5A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="titulo">Tasa de referencia de la Reserva Federal de EE. UU.</p>
+  <p class="subtitulo">Febrero 2023 – Junio 2026 (%)</p>
+  <div class="chart-box">
+    <canvas id="tasaChart" role="img" aria-label="Gráfico de línea que muestra la evolución de la tasa de referencia de la Fed entre febrero 2023 y junio 2026. Alcanzó su punto más alto en 5,50% en julio 2023 y bajó hasta 3,75% en diciembre 2025, manteniéndose ahí en junio 2026.">Tasa Fed: feb-23: 4,75%, mar-23: 5,00%, may-23: 5,25%, jul-23: 5,50%, sep-24: 5,00%, nov-24: 4,75%, dic-24: 4,50%, sep-25: 4,25%, oct-25: 4,00%, dic-25: 3,75%, jun-26: 3,75%</canvas>
+  </div>
+  <div class="footer">
+    <span>Fuente: Reserva Federal de Estados Unidos</span>
+    <span>Gráfico: El Espectador</span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['Feb 23','Mar 23','May 23','Jul 23','Sep 24','Nov 24','Dic 24','Sep 25','Oct 25','Dic 25','Jun 26'];
+const data = [4.75, 5.00, 5.25, 5.50, 5.00, 4.75, 4.50, 4.25, 4.00, 3.75, 3.75];
+
+const pointColors = data.map((v, i) => {
+  if (i === data.length - 1) return '#EA0A0A';
+  if (i === 3) return '#870000';
+  return '#F95858';
+});
+
+const pointRadius = data.map((v, i) => {
+  if (i === data.length - 1) return 6;
+  if (i === 3) return 6;
+  return 4;
+});
+
+new Chart(document.getElementById('tasaChart'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'Tasa de referencia (%)',
+      data,
+      borderColor: '#EA0A0A',
+      backgroundColor: 'rgba(234,10,10,0.08)',
+      borderWidth: 2,
+      pointBackgroundColor: pointColors,
+      pointBorderColor: pointColors,
+      pointRadius: pointRadius,
+      pointHoverRadius: 7,
+      fill: true,
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.parsed.y.toFixed(2) + '%'
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { size: 11 },
+          color: '#5A5A5A',
+          autoSkip: false,
+          maxRotation: 45
+        },
+        border: { display: false }
+      },
+      y: {
+        min: 3,
+        max: 6,
+        grid: { color: 'rgba(0,0,0,0.06)', lineWidth: 0.5 },
+        ticks: {
+          font: { size: 11 },
+          color: '#5A5A5A',
+          callback: v => v.toFixed(2) + '%',
+          stepSize: 0.5
+        },
+        border: { display: false }
+      }
+    },
+    layout: { padding: { top: 20 } }
+  },
+  plugins: [{
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      chart.data.datasets.forEach((dataset, i) => {
+        const meta = chart.getDatasetMeta(i);
+        meta.data.forEach((point, index) => {
+          const value = dataset.data[index];
+          const isLast = index === dataset.data.length - 1;
+          const isPeak = index === 3;
+          if (isLast || isPeak) {
+            ctx.save();
+            ctx.fillStyle = '#141414';
+            ctx.font = '700 11px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+            ctx.restore();
+          }
+        });
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>
