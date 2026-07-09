@@ -1,0 +1,64 @@
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.parsed.y.toFixed(2) + '%'
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { size: 11 },
+          color: '#5A5A5A',
+          autoSkip: false,
+          maxRotation: 45
+        },
+        border: { display: false }
+      },
+      y: {
+        min: 3,
+        max: 6,
+        grid: { color: 'rgba(0,0,0,0.06)', lineWidth: 0.5 },
+        ticks: {
+          font: { size: 11 },
+          color: '#5A5A5A',
+          callback: v => v.toFixed(2) + '%',
+          stepSize: 0.5
+        },
+        border: { display: false }
+      }
+    },
+    layout: { padding: { top: 20 } }
+  },
+  plugins: [{
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      chart.data.datasets.forEach((dataset, i) => {
+        const meta = chart.getDatasetMeta(i);
+        meta.data.forEach((point, index) => {
+          const value = dataset.data[index];
+          const isLast = index === dataset.data.length - 1;
+          const isPeak = index === 3;
+          if (isLast || isPeak) {
+            ctx.save();
+            ctx.fillStyle = '#141414';
+            ctx.font = '700 11px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(value.toFixed(2) + '%', point.x, point.y - 12);
+            ctx.restore();
+          }
+        });
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>
