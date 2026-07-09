@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emisión de TES - El Espectador</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #fff; padding: 24px; }
+
+  .chart-wrapper {
+    max-width: 740px;
+    background: #fff;
+    padding: 24px 24px 16px;
+    border-top: 4px solid #EA0A0A;
+  }
+
+  .chart-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #141414;
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .chart-subtitle {
+    font-size: 11px;
+    color: #5A5A5A;
+    margin-bottom: 16px;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-bottom: 16px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #141414;
+  }
+
+  .legend-box {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #141414;
+    flex-shrink: 0;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .chart-footer {
+    font-size: 10px;
+    color: #5A5A5A;
+    margin-top: 10px;
+    border-top: 1px solid #EEEEEE;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    line-height: 1.5;
+  }
+
+  .footer-brand {
+    font-weight: 700;
+    color: #EA0A0A;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin-left: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="chart-wrapper">
+  <div class="chart-title">Evolución de la emisión de TES en Colombia</div>
+  <div class="chart-subtitle">Datos en billones de pesos a junio de 2026</div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-box" style="background:#EA0A0A;"></div>
+      Subastas
+    </div>
+    <div class="legend-item">
+      <div class="legend-box" style="background:#CFCFCF;"></div>
+      Entidades públicas
+    </div>
+    <div class="legend-item">
+      <div class="legend-box" style="background:#F95858;"></div>
+      Canjes TCO por TES
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot"></div>
+      Total
+    </div>
+  </div>
+
+  <canvas id="myChart" width="700" height="300"></canvas>
+
+  <div class="chart-footer">
+    <div>Fuente: Ministerio de Hacienda. Cálculos: Investigaciones y Análisis de Mercados, Banco de Bogotá. *Precios 2026 por deflactor del PIB.</div>
+    <div class="footer-brand">El Espectador</div>
+  </div>
+</div>
+
+<script>
+const data = [
+  { year: '2010', subastas: 38, entidades: 16, canjes: 0, total: 54 },
+  { year: '2011', subastas: 46, entidades: 18, canjes: 0, total: 64 },
+  { year: '2012', subastas: 31, entidades: 16, canjes: 0, total: 47 },
+  { year: '2013', subastas: 30, entidades: 16, canjes: 0, total: 46 },
+  { year: '2014', subastas: 37, entidades: 18, canjes: 0, total: 55 },
+  { year: '2015', subastas: 34, entidades: 18, canjes: 0, total: 52 },
+  { year: '2016', subastas: 36, entidades: 18, canjes: 0, total: 54 },
+  { year: '2017', subastas: 36, entidades: 18, canjes: 0, total: 54 },
+  { year: '2018', subastas: 28, entidades: 16, canjes: 0, total: 44 },
+  { year: '2019', subastas: 26, entidades: 16, canjes: 0, total: 42 },
+  { year: '2020', subastas: 18, entidades: 13, canjes: 0, total: 31 },
+  { year: '2021', subastas: 27, entidades: 16, canjes: 0, total: 43 },
+  { year: '2022', subastas: 16, entidades: 13, canjes: 0, total: 29 },
+  { year: '2023', subastas: 20, entidades: 14, canjes: 0, total: 34 },
+  { year: '2024', subastas: 19, entidades: 14, canjes: 0, total: 33 },
+  { year: '2025', subastas: 34, entidades: 18, canjes: 0, total: 52 },
+  { year: '2026', subastas: 45, entidades: 20, canjes: 13, total: 78 },
+];
+
+// Ancho fijo: sin medir el DOM, sin depender del contenedor
+const W = 700;
+const H = 300;
+const canvas = document.getElementById('myChart');
+const ctx = canvas.getContext('2d');
+
+const maxVal = 100;
+const padL = 30, padR = 10, padT = 20, padB = 24;
+const chartW = W - padL - padR;
+const chartH = H - padT - padB;
+
+// Grid y etiquetas Y
+ctx.font = '10px Inter, sans-serif';
+ctx.fillStyle = '#5A5A5A';
+ctx.textAlign = 'right';
+[0, 20, 40, 60, 80, 100].forEach(v => {
+  const y = padT + chartH - (v / maxVal * chartH);
+  ctx.beginPath();
+  ctx.strokeStyle = '#EEEEEE';
+  ctx.lineWidth = 1;
+  ctx.moveTo(padL, y);
+  ctx.lineTo(padL + chartW, y);
+  ctx.stroke();
+  ctx.fillText(v, padL - 4, y + 3);
+});
+
+// Barras
+const n = data.length;
+const barW = (chartW / n) * 0.6;
+const groupW = chartW / n;
+
+data.forEach((d, i) => {
+  const x = padL + i * groupW + groupW / 2 - barW / 2;
+  const baseY = padT + chartH;
+
+  const hSub = (d.subastas / maxVal) * chartH;
+  ctx.fillStyle = '#EA0A0A';
+  ctx.fillRect(x, baseY - hSub, barW, hSub);
+
+  const hEnt = (d.entidades / maxVal) * chartH;
+  ctx.fillStyle = '#CFCFCF';
+  ctx.fillRect(x, baseY - hSub - hEnt, barW, hEnt);
+
+  if (d.canjes > 0) {
+    const hCan = (d.canjes / maxVal) * chartH;
+    ctx.fillStyle = '#F95858';
+    ctx.fillRect(x, baseY - hSub - hEnt - hCan, barW, hCan);
+  }
+
+  const totalY = padT + chartH - (d.total / maxVal * chartH);
+  ctx.beginPath();
+  ctx.arc(x + barW / 2, totalY, 3.5, 0, Math.PI * 2);
+  ctx.fillStyle = '#141414';
+  ctx.fill();
+
+  ctx.font = 'bold 8px Inter, sans-serif';
+  ctx.fillStyle = '#141414';
+  ctx.textAlign = 'center';
+  ctx.fillText(d.total, x + barW / 2, totalY - 6);
+
+  const yr = parseInt(d.year);
+  if (yr % 2 === 0) {
+    ctx.font = (d.year === '2026') ? 'bold 9px Inter, sans-serif' : '9px Inter, sans-serif';
+    ctx.fillStyle = (d.year === '2026') ? '#EA0A0A' : '#5A5A5A';
+    ctx.textAlign = 'center';
+    ctx.fillText(d.year, x + barW / 2, H - 6);
+  }
+});
+</script>
+</body>
+</html>
