@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informalidad laboral Colombia</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #ffffff;
+      padding: 16px;
+      font-family: Inter, Arial, sans-serif;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<svg viewBox="0 0 700 385" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Borde superior rojo -->
+  <rect x="0" y="0" width="700" height="4" fill="#EA0A0A"/>
+
+  <!-- Fondo blanco -->
+  <rect x="0" y="4" width="700" height="381" fill="#ffffff"/>
+
+  <!-- Título -->
+  <text x="16" y="33" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" fill="#141414">La informalidad laboral bajó a su nivel más bajo en cinco años</text>
+
+  <!-- Subtítulo -->
+  <text x="16" y="52" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A">Proporción de ocupados informales, total nacional, trimestre móvil marzo-mayo (2021-2026)</text>
+
+  <!-- Líneas de grilla y etiquetas eje Y -->
+  <!-- 62% → y=95 -->
+  <line x1="60" y1="95" x2="675" y2="95" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="54" y="99" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A5A5A" text-anchor="end">62%</text>
+
+  <!-- 60% → y=140 -->
+  <line x1="60" y1="140" x2="675" y2="140" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="54" y="144" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A5A5A" text-anchor="end">60%</text>
+
+  <!-- 58% → y=185 -->
+  <line x1="60" y1="185" x2="675" y2="185" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="54" y="189" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A5A5A" text-anchor="end">58%</text>
+
+  <!-- 56% → y=230 -->
+  <line x1="60" y1="230" x2="675" y2="230" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="54" y="234" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A5A5A" text-anchor="end">56%</text>
+
+  <!-- 54% → y=275 -->
+  <line x1="60" y1="275" x2="675" y2="275" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="54" y="279" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A5A5A" text-anchor="end">54%</text>
+
+  <!-- 52% → y=320 (base) -->
+  <line x1="60" y1="320" x2="675" y2="320" stroke="#CFCFCF" stroke-width="1"/>
+  <text x="54" y="324" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A5A5A" text-anchor="end">52%</text>
+
+  <!-- Área rellena bajo la línea -->
+  <!-- Puntos: (60,151) (182,185) (304,217) (426,235) (548,232) (675,259) -->
+  <path d="M 60,320 L 60,151 L 182,185 L 304,217 L 426,235 L 548,232 L 675,259 L 675,320 Z"
+        fill="#FFC9C9" opacity="0.45"/>
+
+  <!-- Línea principal -->
+  <polyline points="60,151 182,185 304,217 426,235 548,232 675,259"
+            fill="none" stroke="#EA0A0A" stroke-width="2.5"
+            stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Círculos en cada punto -->
+  <circle cx="60"  cy="151" r="4" fill="#EA0A0A"/>
+  <circle cx="182" cy="185" r="4" fill="#EA0A0A"/>
+  <circle cx="304" cy="217" r="4" fill="#EA0A0A"/>
+  <circle cx="426" cy="235" r="4" fill="#EA0A0A"/>
+  <circle cx="548" cy="232" r="4" fill="#EA0A0A"/>
+
+  <!-- Último punto destacado (2026) -->
+  <circle cx="675" cy="259" r="7"  fill="#EA0A0A"/>
+  <circle cx="675" cy="259" r="3.5" fill="#ffffff"/>
+
+  <!-- Etiquetas de valor -->
+  <text x="60"  y="143" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#EA0A0A" text-anchor="middle">59,5%</text>
+  <text x="182" y="177" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#EA0A0A" text-anchor="middle">58,0%</text>
+  <text x="304" y="209" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#EA0A0A" text-anchor="middle">56,6%</text>
+  <text x="426" y="227" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#EA0A0A" text-anchor="middle">55,8%</text>
+  <text x="548" y="224" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#EA0A0A" text-anchor="middle">55,9%</text>
+
+  <!-- Valor 2026 destacado -->
+  <text x="675" y="250" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#870000" text-anchor="middle">54,7%</text>
+
+  <!-- Etiquetas eje X (años) -->
+  <text x="60"  y="337" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A" text-anchor="middle">2021</text>
+  <text x="182" y="337" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A" text-anchor="middle">2022</text>
+  <text x="304" y="337" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A" text-anchor="middle">2023</text>
+  <text x="426" y="337" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A" text-anchor="middle">2024</text>
+  <text x="548" y="337" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A" text-anchor="middle">2025</text>
+  <text x="675" y="337" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#141414" text-anchor="middle">2026</text>
+
+  <!-- Línea separadora footer -->
+  <line x1="16" y1="350" x2="684" y2="350" stroke="#EEEEEE" stroke-width="1"/>
+
+  <!-- Footer: fuente a la izquierda, EL ESPECTADOR a la derecha -->
+  <text x="16" y="365" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A">Fuente: DANE, Gran Encuesta Integrada de Hogares (GEIH). Datos expandidos con proyecciones de población (CNPV 2018).</text>
+  <text x="684" y="365" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#EA0A0A" text-anchor="end">EL ESPECTADOR</text>
+
+  <!-- Nota metodológica -->
+  <text x="16" y="378" font-family="Inter,Arial,sans-serif" font-size="9" fill="#CFCFCF">Nota: la comparación solo es posible desde 2021 por cambio de metodología (GEIH marco 2018).</text>
+
+</svg>
+</body>
+</html>
