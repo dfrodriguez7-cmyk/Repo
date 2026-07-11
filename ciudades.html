@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informalidad por ciudades</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #ffffff; padding: 16px; font-family: Inter, Arial, sans-serif; }
+    svg { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+<svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Borde superior rojo -->
+  <rect x="0" y="0" width="700" height="4" fill="#EA0A0A"/>
+  <rect x="0" y="4" width="700" height="456" fill="#ffffff"/>
+
+  <!-- Título -->
+  <text x="16" y="28" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" fill="#141414">Sincelejo, la ciudad más informal; Bogotá, la menos</text>
+  <text x="16" y="46" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A5A5A">Proporción de ocupados informales por ciudad, trimestre móvil marzo-mayo 2026 (%)</text>
+
+  <!-- Leyenda -->
+  <rect x="16" y="56" width="9" height="9" fill="#EA0A0A"/>
+  <text x="29" y="64" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A">Ciudad</text>
+  <rect x="75" y="56" width="9" height="9" fill="#5A5A5A"/>
+  <text x="88" y="64" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A">Referencia (nacional / agregado)</text>
+
+  <!-- Grid lines -->
+  <line x1="50" y1="247.5" x2="685" y2="247.5" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="46" y="250.5" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A" text-anchor="end">40%</text>
+  <line x1="50" y1="190.0" x2="685" y2="190.0" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="46" y="193.0" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A" text-anchor="end">50%</text>
+  <line x1="50" y1="132.5" x2="685" y2="132.5" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="46" y="135.5" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A" text-anchor="end">60%</text>
+  <line x1="50" y1="75.0" x2="685" y2="75.0" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="46" y="78.0" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A" text-anchor="end">70%</text>
+  <!-- Línea base -->
+  <line x1="50" y1="305" x2="685" y2="305" stroke="#CFCFCF" stroke-width="1"/>
+
+  <!-- Barras y etiquetas -->
+  <!-- Sincelejo -->
+  <rect x="53.2" y="94.0" width="18" height="211.0" fill="#EA0A0A"/>
+  <text x="62.2" y="91.0" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">66,7%</text>
+  <text x="62.2" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 62.2 313.0)">Sincelejo</text>
+
+  <!-- Valledupar -->
+  <rect x="77.6" y="119.3" width="18" height="185.7" fill="#EA0A0A"/>
+  <text x="86.6" y="116.3" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">62,3%</text>
+  <text x="86.6" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 86.6 313.0)">Valledupar</text>
+
+  <!-- Cúcuta A.M. -->
+  <rect x="102.1" y="122.7" width="18" height="182.3" fill="#EA0A0A"/>
+  <text x="111.1" y="119.7" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">61,7%</text>
+  <text x="111.1" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 111.1 313.0)">Cúcuta A.M.</text>
+
+  <!-- Riohacha -->
+  <rect x="126.5" y="123.3" width="18" height="181.7" fill="#EA0A0A"/>
+  <text x="135.5" y="120.3" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">61,6%</text>
+  <text x="135.5" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 135.5 313.0)">Riohacha</text>
+
+  <!-- Montería -->
+  <rect x="150.9" y="140.5" width="18" height="164.5" fill="#EA0A0A"/>
+  <text x="159.9" y="137.5" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">58,6%</text>
+  <text x="159.9" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 159.9 313.0)">Montería</text>
+
+  <!-- Santa Marta -->
+  <rect x="175.3" y="150.3" width="18" height="154.7" fill="#EA0A0A"/>
+  <text x="184.3" y="147.3" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">56,9%</text>
+  <text x="184.3" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 184.3 313.0)">Santa Marta</text>
+
+  <!-- Quibdó -->
+  <rect x="199.8" y="156.7" width="18" height="148.3" fill="#EA0A0A"/>
+  <text x="208.8" y="153.7" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">55,8%</text>
+  <text x="208.8" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 208.8 313.0)">Quibdó</text>
+
+  <!-- Total nacional -->
+  <rect x="224.2" y="163.0" width="18" height="142.0" fill="#5A5A5A"/>
+  <text x="233.2" y="160.0" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#5A5A5A" text-anchor="middle">54,7%</text>
+  <text x="233.2" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" font-weight="700" fill="#141414" text-anchor="end" transform="rotate(-45 233.2 313.0)">Total nacional</text>
+
+  <!-- Popayán -->
+  <rect x="248.6" y="171.0" width="18" height="134.0" fill="#EA0A0A"/>
+  <text x="257.6" y="168.0" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">53,3%</text>
+  <text x="257.6" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 257.6 313.0)">Popayán</text>
+
+  <!-- Florencia -->
+  <rect x="273.0" y="172.2" width="18" height="132.8" fill="#EA0A0A"/>
+  <text x="282.0" y="169.2" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">53,1%</text>
+  <text x="282.0" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 282.0 313.0)">Florencia</text>
+
+  <!-- Villavicencio -->
+  <rect x="297.4" y="176.2" width="18" height="128.8" fill="#EA0A0A"/>
+  <text x="306.4" y="173.2" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">52,4%</text>
+  <text x="306.4" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 306.4 313.0)">Villavicencio</text>
+
+  <!-- Pasto -->
+  <rect x="321.9" y="177.9" width="18" height="127.1" fill="#EA0A0A"/>
+  <text x="330.9" y="174.9" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">52,1%</text>
+  <text x="330.9" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 330.9 313.0)">Pasto</text>
+
+  <!-- Barranquilla A.M. -->
+  <rect x="346.3" y="190.0" width="18" height="115.0" fill="#EA0A0A"/>
+  <text x="355.3" y="187.0" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">50,0%</text>
+  <text x="355.3" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 355.3 313.0)">Barranquilla A.M.</text>
+
+  <!-- Cali A.M. -->
+  <rect x="370.7" y="204.9" width="18" height="100.1" fill="#EA0A0A"/>
+  <text x="379.7" y="201.9" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">47,4%</text>
+  <text x="379.7" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 379.7 313.0)">Cali A.M.</text>
+
+  <!-- Cartagena -->
+  <rect x="395.1" y="204.9" width="18" height="100.1" fill="#EA0A0A"/>
+  <text x="404.1" y="201.9" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">47,4%</text>
+  <text x="404.1" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 404.1 313.0)">Cartagena</text>
+
+  <!-- Neiva -->
+  <rect x="419.6" y="213.6" width="18" height="91.4" fill="#EA0A0A"/>
+  <text x="428.6" y="210.6" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">45,9%</text>
+  <text x="428.6" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 428.6 313.0)">Neiva</text>
+
+  <!-- Ibagué -->
+  <rect x="444.0" y="220.5" width="18" height="84.5" fill="#EA0A0A"/>
+  <text x="453.0" y="217.5" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">44,7%</text>
+  <text x="453.0" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 453.0 313.0)">Ibagué</text>
+
+  <!-- Bucaramanga A.M. -->
+  <rect x="468.4" y="221.6" width="18" height="83.4" fill="#EA0A0A"/>
+  <text x="477.4" y="218.6" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">44,5%</text>
+  <text x="477.4" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 477.4 313.0)">Bucaramanga A.M.</text>
+
+  <!-- 23 Ciudades y A.M. -->
+  <rect x="492.8" y="236.6" width="18" height="68.4" fill="#5A5A5A"/>
+  <text x="501.8" y="233.6" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#5A5A5A" text-anchor="middle">41,9%</text>
+  <text x="501.8" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" font-weight="700" fill="#141414" text-anchor="end" transform="rotate(-45 501.8 313.0)">23 Ciudades y A.M.</text>
+
+  <!-- Armenia -->
+  <rect x="517.2" y="241.8" width="18" height="63.2" fill="#EA0A0A"/>
+  <text x="526.2" y="238.8" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">41,0%</text>
+  <text x="526.2" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 526.2 313.0)">Armenia</text>
+
+  <!-- 13 Ciudades y A.M. -->
+  <rect x="541.7" y="243.5" width="18" height="61.5" fill="#5A5A5A"/>
+  <text x="550.7" y="240.5" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#5A5A5A" text-anchor="middle">40,7%</text>
+  <text x="550.7" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" font-weight="700" fill="#141414" text-anchor="end" transform="rotate(-45 550.7 313.0)">13 Ciudades y A.M.</text>
+
+  <!-- Pereira A.M. -->
+  <rect x="566.1" y="246.9" width="18" height="58.1" fill="#EA0A0A"/>
+  <text x="575.1" y="243.9" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">40,1%</text>
+  <text x="575.1" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 575.1 313.0)">Pereira A.M.</text>
+
+  <!-- Medellín A.M. -->
+  <rect x="590.5" y="258.4" width="18" height="46.6" fill="#EA0A0A"/>
+  <text x="599.5" y="255.4" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">38,1%</text>
+  <text x="599.5" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 599.5 313.0)">Medellín A.M.</text>
+
+  <!-- Tunja -->
+  <rect x="614.9" y="272.8" width="18" height="32.2" fill="#EA0A0A"/>
+  <text x="623.9" y="269.8" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">35,6%</text>
+  <text x="623.9" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 623.9 313.0)">Tunja</text>
+
+  <!-- Manizales A.M. -->
+  <rect x="639.4" y="276.2" width="18" height="28.8" fill="#EA0A0A"/>
+  <text x="648.4" y="273.2" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">35,0%</text>
+  <text x="648.4" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 648.4 313.0)">Manizales A.M.</text>
+
+  <!-- Bogotá D.C. -->
+  <rect x="663.8" y="286.6" width="18" height="18.4" fill="#EA0A0A"/>
+  <text x="672.8" y="283.6" font-family="Inter,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#EA0A0A" text-anchor="middle">33,2%</text>
+  <text x="672.8" y="313.0" font-family="Inter,Arial,sans-serif" font-size="8" fill="#141414" text-anchor="end" transform="rotate(-45 672.8 313.0)">Bogotá D.C.</text>
+
+  <!-- Línea separadora footer -->
+  <line x1="16" y1="415" x2="684" y2="415" stroke="#EEEEEE" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="16" y="429" font-family="Inter,Arial,sans-serif" font-size="9" fill="#5A5A5A">Fuente: DANE, Gran Encuesta Integrada de Hogares (GEIH). Datos expandidos con proyecciones de población (CNPV 2018).</text>
+  <text x="684" y="429" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#EA0A0A" text-anchor="end">EL ESPECTADOR</text>
+  <text x="16" y="443" font-family="Inter,Arial,sans-serif" font-size="9" fill="#CFCFCF">A.M.: áreas metropolitanas. Los resultados de ciudades incluyen solo la cabecera municipal.</text>
+
+</svg>
+</body>
+</html>
