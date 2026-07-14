@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIC y Enseñanza lideran consultas de IA</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #ffffff;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .chart-wrapper {
+    width: 660px;
+    background: #fff;
+    padding: 32px 36px 24px;
+    border-top: 4px solid #EA0A0A;
+  }
+
+  .chart-title {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #141414;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .chart-subtitle {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    color: #5A5A5A;
+    line-height: 1.4;
+    margin-bottom: 28px;
+  }
+
+  .chart-body {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .bars-section {
+    flex: 1;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+
+  .bar-label {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #141414;
+    width: 90px;
+    min-width: 90px;
+    text-align: right;
+    line-height: 1.3;
+  }
+
+  .stacked-bar {
+    flex: 1;
+    height: 44px;
+    display: flex;
+  }
+
+  .segment {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+  }
+
+  .seg-tic-alto    { background: #EA0A0A; }
+  .seg-ens-alto    { background: #F95858; }
+  .seg-neg-alto    { background: #5A5A5A; }
+  .seg-cie-alto    { background: #141414; }
+  .seg-otros-alto  { background: #CFCFCF; color: #141414; }
+
+  .seg-tic-med     { background: #870000; }
+  .seg-ens-med     { background: #EA0A0A; }
+  .seg-neg-med     { background: #F95858; }
+  .seg-cie-med     { background: #FFC9C9; color: #141414; }
+  .seg-otros-med   { background: #EEEEEE; color: #141414; }
+
+  /* Eje X */
+  .axis-wrap {
+    margin-left: 102px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .axis-x {
+    display: flex;
+    border-top: 1px solid #CFCFCF;
+    padding-top: 6px;
+  }
+
+  .axis-tick {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #5A5A5A;
+    flex: 1;
+    text-align: center;
+  }
+  .axis-tick:first-child { text-align: left; }
+  .axis-tick:last-child { text-align: right; }
+
+  .axis-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #5A5A5A;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* Leyenda */
+  .legend {
+    width: 170px;
+    min-width: 170px;
+    padding-top: 4px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .legend-color {
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+    margin-top: 2px;
+  }
+
+  .legend-text {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #141414;
+    line-height: 1.3;
+  }
+
+  .lc-1 { background: #EA0A0A; }
+  .lc-2 { background: #F95858; }
+  .lc-3 { background: #5A5A5A; }
+  .lc-4 { background: #141414; }
+  .lc-5 { background: #CFCFCF; }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #EEEEEE;
+    margin: 20px 0 14px;
+  }
+
+  .note {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #5A5A5A;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .credits {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #5A5A5A;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .credits .ee { color: #EA0A0A; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="chart-wrapper">
+
+  <div class="chart-title">TIC y Enseñanza lideran las consultas de tareas de IA</div>
+  <div class="chart-subtitle">En países de ingreso mediano, dos sectores concentran casi tres cuartas partes del uso</div>
+
+  <div class="chart-body">
+    <div class="bars-section">
+
+      <div class="bar-row">
+        <div class="bar-label">Ingreso alto</div>
+        <div class="stacked-bar">
+          <div class="segment seg-tic-alto" style="width:37%">37</div>
+          <div class="segment seg-ens-alto" style="width:18%">18</div>
+          <div class="segment seg-neg-alto" style="width:12%">12</div>
+          <div class="segment seg-cie-alto" style="width:4%">4</div>
+          <div class="segment seg-otros-alto" style="width:28%">28</div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-label">Ingreso mediano</div>
+        <div class="stacked-bar">
+          <div class="segment seg-tic-med" style="width:47%">47</div>
+          <div class="segment seg-ens-med" style="width:24%">24</div>
+          <div class="segment seg-neg-med" style="width:8%">8</div>
+          <div class="segment seg-cie-med" style="width:3%">3</div>
+          <div class="segment seg-otros-med" style="width:17%">17</div>
+        </div>
+      </div>
+
+      <div class="axis-wrap">
+        <div class="axis-x">
+          <div class="axis-tick">0</div>
+          <div class="axis-tick">20</div>
+          <div class="axis-tick">40</div>
+          <div class="axis-tick">60</div>
+          <div class="axis-tick">80</div>
+          <div class="axis-tick">100</div>
+        </div>
+        <div class="axis-label">Consultas de tareas de IA, en porcentaje</div>
+      </div>
+
+    </div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color lc-1"></div>
+        <div class="legend-text">Trabajadores de TIC</div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color lc-2"></div>
+        <div class="legend-text">Profesionales de la enseñanza</div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color lc-3"></div>
+        <div class="legend-text">Trabajadores de negocios y administración</div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color lc-4"></div>
+        <div class="legend-text">Profesionales de ciencias e ingeniería</div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color lc-5"></div>
+        <div class="legend-text">Todos los demás</div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <p class="note"><strong>Nota:</strong> Datos basados en registros anonimizados de conversaciones con Claude (Anthropic) durante una semana de noviembre de 2025, clasificados por ocupación según el sistema O*NET.</p>
+
+  <div class="credits">
+    <span class="ee">EL ESPECTADOR</span>
+    <span>Fuente: Banco Mundial / Anthropic</span>
+  </div>
+
+</div>
+</body>
+</html>
